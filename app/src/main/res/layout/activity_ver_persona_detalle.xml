@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".verPersonaDetalle">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabEliminar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:clickable="true"
+        android:src="@drawable/ic_delete" />
+
     <EditText
         android:id="@+id/txtNombre"
         android:layout_width="match_parent"
@@ -35,10 +43,22 @@
         android:inputType="textPassword"
         android:hint="Clave" />
 
+
+    <Button
+        android:id="@+id/btnEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar"
+        android:layout_gravity="center"
+      />
+
+
     <Button
         android:id="@+id/btnGuardar"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guardar" />
+        android:text="Guardar"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_delete" />
 
 </LinearLayout>

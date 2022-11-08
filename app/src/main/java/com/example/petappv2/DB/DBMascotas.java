@@ -84,5 +84,85 @@ public class DBMascotas extends DBHelper{
 
         return listaMascota;
     }
+
+    //MUESTRA DATOS DE MASCOTA
+    public Mascotas verMascota(int id){
+
+        //Conexión
+        DBHelper helper = new DBHelper(context);
+        //Objeto para la lectura en la base de datos
+        SQLiteDatabase base_datos = helper.getReadableDatabase();
+        Mascotas mascota = null;
+        //Se define cursor para almacenar el resultado de la búsqueda
+        Cursor cursorMascota = base_datos.rawQuery("SELECT * FROM " + Constantes.TABLA_MASCOTA + " WHERE ID_MASCOTA=" + id + " LIMIT 1", null);
+        if (cursorMascota.moveToFirst()) {
+
+            mascota = new Mascotas();
+            mascota.setId_Mascota(cursorMascota.getInt(0));
+            mascota.setNombre(cursorMascota.getString(1));
+            mascota.setTipo(cursorMascota.getString(2));
+            mascota.setSexo(cursorMascota.getString(3));
+            mascota.setTamanio(cursorMascota.getString(4));
+            mascota.setRaza(cursorMascota.getString(5));
+            mascota.setEdad(cursorMascota.getInt(6));
+            mascota.setUbicacion(cursorMascota.getString(7));
+            mascota.setImagen(cursorMascota.getString(8));
+            mascota.setFecha(cursorMascota.getString(9));
+            mascota.setEstado(cursorMascota.getString(10));
+            mascota.setDescripcion(cursorMascota.getString(11));
+
+
+        }
+        cursorMascota.close();
+        return mascota;
+    }
+    //MODIFICAR DATOS DE MASCOTA
+    public boolean editMascota(int id, String nombre, String tipo, String sexo,String tamanio,
+                               String raza, Integer edad, String ubicacion,String imagen, String fecha,
+                               String estado, String descripcion) {
+
+        boolean correcto = false;
+
+        //Conexión
+        DBHelper helper = new DBHelper(context);
+        //Objeto para la lectura en la base de datos
+        SQLiteDatabase base_datos = helper.getWritableDatabase();
+
+        try {
+            base_datos.execSQL("UPDATE " + Constantes.TABLA_MASCOTA + " SET NOMBRE = '" + nombre + "', TIPO = '" + tipo + "'," +
+                    " SEXO = '" + sexo + "', TAMANIO = '" + tamanio + "',RAZA = '" + raza + "',EDAD = '" + edad + "'," +
+                    " UBICACION = '" + ubicacion + "', IMAGEN = '" + imagen + "',FECHA = '" + fecha + "',ESTADO = '" + estado + "',DESCRIPCION = '" + descripcion + "' " +
+                    "WHERE ID_MASCOTA='" + id + "' ");
+            correcto = true;
+        } catch (Exception ex) {
+            ex.toString();
+            correcto = false;
+        } finally {
+            base_datos.close();
+        }
+
+        return correcto;
+    }
+
+    public boolean eliminarMascota(int id) {
+
+        boolean correcto = false;
+        //Conexión
+        DBHelper helper = new DBHelper(context);
+        //Objeto para la lectura en la base de datos
+        SQLiteDatabase base_datos = helper.getWritableDatabase();
+
+        try {
+            base_datos.execSQL("DELETE FROM " + Constantes.TABLA_MASCOTA + " WHERE ID_MASCOTA = '" + id + "'");
+            correcto = true;
+        } catch (Exception ex) {
+            ex.toString();
+            correcto = false;
+        } finally {
+            base_datos.close();
+        }
+
+        return correcto;
+    }
 }
 

@@ -98,5 +98,48 @@ public class DBPersonas extends DBHelper{
             cursorPersona.close();
             return persona;
     }
+    //MODIFICAR DATOS DE PERSONA
+    public boolean editPersona(int id, String nombre, String telefono, String correo,String clave, String ciudad) {
+
+        boolean correcto = false;
+
+        //Conexión
+        DBHelper helper = new DBHelper(context);
+        //Objeto para la lectura en la base de datos
+        SQLiteDatabase base_datos = helper.getWritableDatabase();
+
+        try {
+            base_datos.execSQL("UPDATE " + Constantes.TABLA_PERSONA + " SET nombres = '" + nombre + "', TELEFONO = '" + telefono + "', CORREO = '" + correo + "', CLAVE = '" + clave + "',CIUDAD = '" + ciudad + "' WHERE ID_PERSONA='" + id + "' ");
+            correcto = true;
+        } catch (Exception ex) {
+            ex.toString();
+            correcto = false;
+        } finally {
+            base_datos.close();
+        }
+
+        return correcto;
+    }
+
+    public boolean eliminarUsuario(int id) {
+
+        boolean correcto = false;
+        //Conexión
+        DBHelper helper = new DBHelper(context);
+        //Objeto para la lectura en la base de datos
+        SQLiteDatabase base_datos = helper.getWritableDatabase();
+
+        try {
+            base_datos.execSQL("DELETE FROM " + Constantes.TABLA_PERSONA + " WHERE ID_PERSONA = '" + id + "'");
+            correcto = true;
+        } catch (Exception ex) {
+            ex.toString();
+            correcto = false;
+        } finally {
+            base_datos.close();
+        }
+
+        return correcto;
+    }
 
 }

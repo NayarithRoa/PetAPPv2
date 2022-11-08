@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/drawable/boton_redondo.xml" value="0.2115" />
+        <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/activity_editar_persona.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/activity_inicio.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/activity_registro_mascota.xml" value="0.22" />
         <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/activity_registro_persona.xml" value="0.33" />
         <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/activity_ver_mascota.xml" value="0.19010416666666666" />
-        <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/activity_ver_persona_detalle.xml" value="0.16847826086956522" />
+        <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/activity_ver_persona_detalle.xml" value="0.22" />
         <entry key="..\:/Users/ayis0/AndroidStudioProjects/PetAPPv2/app/src/main/res/layout/lista_item_mascota.xml" value="0.20416666666666666" />
       </map>
     </option>

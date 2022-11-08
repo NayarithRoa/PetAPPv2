@@ -14,6 +14,7 @@ import com.example.petappv2.DB.Personas;
 public class RegistroPersona extends AppCompatActivity {
     Button btnGuardar;
     EditText txtNombre, txtCorreo,txtCelular,txtClave, txtCiudad;
+    Long resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +34,11 @@ public class RegistroPersona extends AppCompatActivity {
                 Toast.makeText(this,"Digite todos los datos solicitados",Toast.LENGTH_LONG).show();
             }else{
             insertar();
-                Intent intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+                if(resultado>0){
+                    //temporal
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
+                }
             }
 
         });
@@ -49,6 +53,6 @@ public class RegistroPersona extends AppCompatActivity {
         personas.setCiudad(txtCiudad.getText().toString());
 
         DBPersonas dbPersonas = new DBPersonas(this);
-        Long resultado = dbPersonas.insertarPersonas(personas);
+        resultado = dbPersonas.insertarPersonas(personas);
     }
 }
