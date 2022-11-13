@@ -37,9 +37,10 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
     public void onBindViewHolder(@NonNull ListaMascotasAdapter.ViewHolder viewHolder, int position) {
         viewHolder.nombre.setText(listaMascotas.get(position).getNombre());
         viewHolder.ubicacion.setText(listaMascotas.get(position).getUbicacion());
+        Glide.with(viewHolder.itemView.getContext()).load(listaMascotas.get(position).getImagen()).into(viewHolder.foto);
 
-        int drawableReourceId=viewHolder.itemView.getContext().getResources().getIdentifier(listaMascotas.get(position).getImagen(),"drawable",viewHolder.itemView.getContext().getPackageName());
-        Glide.with(viewHolder.itemView.getContext()).load("https://loremflickr.com/320/240").into(viewHolder.foto);
+        /*int drawableReourceId=viewHolder.itemView.getContext().getResources().getIdentifier(listaMascotas.get(position).getImagen(),"drawable",viewHolder.itemView.getContext().getPackageName());
+        Glide.with(viewHolder.itemView.getContext()).load("https://loremflickr.com/320/240").into(viewHolder.foto);*/
     }
 
     @Override

@@ -142,4 +142,21 @@ public class DBPersonas extends DBHelper{
         return correcto;
     }
 
+    //Método para Verificar existencia de Personas en BD
+    public boolean existePersonas(){
+
+        DBHelper dbHelper = new DBHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor listaPersonas = null;
+        listaPersonas = db.rawQuery("SELECT * FROM " + Constantes.TABLA_PERSONA, null);
+
+        if (listaPersonas.getCount()>0) {
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
 }

@@ -11,13 +11,13 @@ public class Mascotas {
     private String raza;
     private int edad;
     private String ubicacion;
-    private String imagen;
+    private byte[] imagen;
     private String estado;
     private String descripcion;
     private String fecha;
     private long id_Persona;
 
-    public Mascotas(long id_Mascota, String nombre, String tipo, String sexo, String tamanio, String raza, int edad, String ubicacion, String imagen, String estado, String descripcion, String fecha, long id_Persona) {
+    public Mascotas(long id_Mascota, String nombre, String tipo, String sexo, String tamanio, String raza, int edad, String ubicacion, byte[] imagen, String estado, String descripcion, String fecha, long id_Persona) {
         this.id_Mascota = id_Mascota;
         this.nombre = nombre;
         this.tipo = tipo;
@@ -112,11 +112,11 @@ public class Mascotas {
         this.ubicacion = ubicacion;
     }
 
-    public String getImagen() {
+    public byte[] getImagen() {
         return imagen;
     }
 
-    public void setImagen(String imagen) {
+    public void setImagen(byte[] imagen) {
         this.imagen = imagen;
     }
 

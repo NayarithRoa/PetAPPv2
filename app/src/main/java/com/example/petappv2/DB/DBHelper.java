@@ -24,7 +24,7 @@ public class DBHelper extends SQLiteOpenHelper {
             " RAZA TEXT NOT NULL," +
             " EDAD INT NOT NULL," +
             " UBICACION TEXT NOT NULL," +
-            " IMAGEN TEXT NOT NULL," +
+            " IMAGEN BLOB," +
             " FECHA TEXT NOT NULL," +
             " ESTADO TEXT NOT NULL," +
             " DESCRIPCION TEXT NOT NULL," +

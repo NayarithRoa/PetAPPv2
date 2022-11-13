@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.petappv2.DB.DBPersonas;
+import com.example.petappv2.DB.Personas;
 
 public class MainActivity extends AppCompatActivity {
     Button btnIniciarSesion;
@@ -23,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
         txtCorreo = findViewById(R.id.txtCorreo);
         txtClave = findViewById(R.id.txtClave);
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
+        //Registro datos en bd
+        datosDefault();
 
         //Iniciar sesión
         btnIniciarSesion.setOnClickListener(v->{
@@ -31,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 DBPersonas dbPersonas = new DBPersonas(this);
                 if(dbPersonas.autenticarPersonas(txtCorreo.getText().toString(),txtClave.getText().toString())){
                     Toast.makeText(this, "Bienvenido", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(this, verPersonaDetalle.class);
-                    /*intent.putExtra("documento",txtDocumento.getText());*/
+                    Intent intent = new Intent(this, VerMascota.class);
                     startActivity(intent);
                 }
                 else {
@@ -45,5 +47,21 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Error, no fue posible iniciar sesión", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void datosDefault(){
+        //Creacion de personas
+        DBPersonas dbPersonas = new DBPersonas(this);
+        //Verifica existencia de usuarios
+        if(!dbPersonas.existePersonas()){
+            //Crea usuarios por defecto
+            Personas personas= new Personas();
+            personas.setNombres("Nayarith Roa");
+            personas.setTelefono("3023691520");
+            personas.setCiudad("Tunja");
+            personas.setCorreo("admin");
+            personas.setClave("12345");
+            dbPersonas.insertarPersonas(personas);
+        }
     }
 }

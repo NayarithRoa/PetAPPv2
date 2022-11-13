@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -28,8 +30,9 @@ public class DBMascotas extends DBHelper{
             SQLiteDatabase db = dbHelper.getWritableDatabase();
 
             ContentValues valores = new ContentValues();
-            valores.put("NOMBRE", mascotas.getTipo());
+            valores.put("NOMBRE", mascotas.getNombre());
             valores.put("TIPO", mascotas.getTipo());
+            valores.put("IMAGEN", mascotas.getImagen());
             valores.put("SEXO", mascotas.getSexo());
             valores.put("TAMANIO", mascotas.getTamanio());
             valores.put("RAZA", mascotas.getRaza());
@@ -72,7 +75,11 @@ public class DBMascotas extends DBHelper{
                 mascota.setRaza(cursorMascotas.getString(5));
                 mascota.setEdad(cursorMascotas.getInt(6));
                 mascota.setUbicacion(cursorMascotas.getString(7));
-                mascota.setImagen(cursorMascotas.getString(8));
+                //IMAGEN
+                byte[] bytesImage=cursorMascotas.getBlob(8);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytesImage,0,bytesImage.length);
+                mascota.setImagen(bytesImage);
+                //IMAGEN
                 mascota.setEstado(cursorMascotas.getString(9));
                 mascota.setDescripcion(cursorMascotas.getString(10));
                 mascota.setFecha(cursorMascotas.getString(11));
@@ -106,7 +113,11 @@ public class DBMascotas extends DBHelper{
             mascota.setRaza(cursorMascota.getString(5));
             mascota.setEdad(cursorMascota.getInt(6));
             mascota.setUbicacion(cursorMascota.getString(7));
-            mascota.setImagen(cursorMascota.getString(8));
+            //IMAGEN
+            byte[] bytesImage=cursorMascota.getBlob(8);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(bytesImage,0,bytesImage.length);
+            mascota.setImagen(bytesImage);
+            //IMAGEN
             mascota.setFecha(cursorMascota.getString(9));
             mascota.setEstado(cursorMascota.getString(10));
             mascota.setDescripcion(cursorMascota.getString(11));
