@@ -5,7 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".RegistroMascota">
+    tools:context=".DetalleMascota">
+
+    <ImageView
+        android:id="@+id/sr_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:scaleType="centerCrop"
+        android:src="@drawable/dog" />
 
     <EditText
         android:id="@+id/txtNombree"
@@ -18,16 +26,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Tipo" />
+
     <EditText
         android:id="@+id/txtSexo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Sexo" />
+
     <EditText
         android:id="@+id/txtTamanio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Tamaño" />
+
     <EditText
         android:id="@+id/txtRaza"
         android:layout_width="match_parent"
@@ -53,27 +64,9 @@
         android:layout_height="wrap_content"
         android:hint="Descripcion" />
 
-
-
-    <ImageView
-        android:id="@+id/sr_image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/dog"
-        android:layout_gravity="center"
-        android:scaleType="centerCrop"/>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/selectImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:clickable="true"
-        android:src="@drawable/image_search" />
-
     <Button
         android:id="@+id/btnGuardar1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Guardar" />
+        android:text="Mensaje a dueño" />
 </LinearLayout>

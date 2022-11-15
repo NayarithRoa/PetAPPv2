@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.petappv2.DB.Mascotas;
+import com.example.petappv2.DetalleMascota;
 import com.example.petappv2.R;
 import com.example.petappv2.VerMascota;
 
@@ -39,8 +40,6 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
         viewHolder.ubicacion.setText(listaMascotas.get(position).getUbicacion());
         Glide.with(viewHolder.itemView.getContext()).load(listaMascotas.get(position).getImagen()).into(viewHolder.foto);
 
-        /*int drawableReourceId=viewHolder.itemView.getContext().getResources().getIdentifier(listaMascotas.get(position).getImagen(),"drawable",viewHolder.itemView.getContext().getPackageName());
-        Glide.with(viewHolder.itemView.getContext()).load("https://loremflickr.com/320/240").into(viewHolder.foto);*/
     }
 
     @Override
@@ -65,7 +64,7 @@ public class ListaMascotasAdapter extends RecyclerView.Adapter<ListaMascotasAdap
                 @Override
                 public void onClick(View view) {
                     Context context = view.getContext();
-                    Intent intent = new Intent(context, VerMascota.class);
+                    Intent intent = new Intent(context, DetalleMascota.class);
                     intent.putExtra("ID", listaMascotas.get(getAdapterPosition()).getId_Mascota());
                     context.startActivity(intent);
                 }

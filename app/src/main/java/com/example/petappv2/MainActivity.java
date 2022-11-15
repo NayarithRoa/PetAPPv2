@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +21,7 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.Task;
+import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
     Button btnIniciarSesion;
@@ -105,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 task.getResult(ApiException.class);
                 navigateToSecondActivity();
             } catch (ApiException e) {
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Algo va mal...", Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -113,6 +117,30 @@ public class MainActivity extends AppCompatActivity {
     void navigateToSecondActivity(){
         finish();
         Intent intent = new Intent(MainActivity.this,VerMascota.class);
+        startActivity(intent);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater= getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.menucrearMascota: verresgistromascota();
+                return true;
+            case R.id.menuverWhatsapp: verfuncionWhatsapp();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+    private void verresgistromascota(){
+        Intent intent=new Intent(this, RegistroMascota.class);
+        startActivity(intent);
+    }
+    private void verfuncionWhatsapp(){
+        Intent intent=new Intent(this, apiWhatsapp.class);
         startActivity(intent);
     }
 }

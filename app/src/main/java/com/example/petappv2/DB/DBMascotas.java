@@ -69,7 +69,7 @@ public class DBMascotas extends DBHelper{
                 mascota = new Mascotas();
                 mascota.setId_Mascota(cursorMascotas.getInt(0));
                 mascota.setTipo(cursorMascotas.getString(1));
-                mascota.setTipo(cursorMascotas.getString(2));
+                mascota.setNombre(cursorMascotas.getString(2));
                 mascota.setSexo(cursorMascotas.getString(3));
                 mascota.setTamanio(cursorMascotas.getString(4));
                 mascota.setRaza(cursorMascotas.getString(5));

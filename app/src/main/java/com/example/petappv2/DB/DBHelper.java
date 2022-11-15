@@ -26,7 +26,7 @@ public class DBHelper extends SQLiteOpenHelper {
             " UBICACION TEXT NOT NULL," +
             " IMAGEN BLOB," +
             " FECHA TEXT NOT NULL," +
-            " ESTADO TEXT NOT NULL," +
+            " ESTADO TEXT," +
             " DESCRIPCION TEXT NOT NULL," +
             " ID_PERSONA INT NOT NULL,"+
             " FOREIGN KEY (ID_PERSONA) REFERENCES "+ Constantes.TABLA_PERSONA+ "(ID_PERSONA))";

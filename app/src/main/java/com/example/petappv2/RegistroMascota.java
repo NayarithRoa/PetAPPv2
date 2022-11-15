@@ -37,7 +37,7 @@ import java.util.*;
 
 public class RegistroMascota extends AppCompatActivity {
     Button btnGuardar;
-    EditText txtNombre, txtTipo,txtSexo,txtTamanio, txtRaza, txtEdad,txtUbicacion,txtImagen,txtEstado,txtDescripcion;
+    EditText txtNombre, txtTipo,txtSexo,txtTamanio, txtRaza, txtEdad,txtUbicacion,txtDescripcion;
     ImageView imageview;
     FloatingActionButton btnselectImage;
     DateFormat df= new SimpleDateFormat("dd/MM/yy");
@@ -59,7 +59,6 @@ public class RegistroMascota extends AppCompatActivity {
         txtEdad=findViewById(R.id.txtEdad);
         txtUbicacion=findViewById(R.id.txtUbicacion);
         imageview=findViewById(R.id.sr_image);
-        txtEstado=findViewById(R.id.txtEstado);
         txtDescripcion=findViewById(R.id.txtDescripcion);
         btnGuardar = findViewById(R.id.btnGuardar1);
         btnselectImage = findViewById(R.id.selectImage);
@@ -69,7 +68,7 @@ public class RegistroMascota extends AppCompatActivity {
                     || txtSexo.getText().toString().isEmpty() || txtTamanio.getText().toString().isEmpty()
                     || txtRaza.getText().toString().isEmpty() || txtEdad.getText().toString().isEmpty()
                     || txtUbicacion.getText().toString().isEmpty()
-                    || txtEstado.getText().toString().isEmpty() || txtDescripcion.getText().toString().isEmpty()
+                    || txtDescripcion.getText().toString().isEmpty()
             ){
                 Toast.makeText(this,"Digite todos los datos solicitados",Toast.LENGTH_LONG).show();
             }else{
@@ -132,7 +131,6 @@ public class RegistroMascota extends AppCompatActivity {
         mascotas.setRaza(txtRaza.getText().toString());
         mascotas.setEdad(Integer.parseInt(txtEdad.getText().toString()));
         mascotas.setUbicacion(txtUbicacion.getText().toString());
-        mascotas.setEstado(txtEstado.getText().toString());
         mascotas.setDescripcion(txtDescripcion.getText().toString());
         mascotas.setId_Persona(1); //CAMBIAR
         mascotas.setFecha(df.format(fecha));
